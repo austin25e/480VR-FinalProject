@@ -3,8 +3,10 @@ using UnityEngine;
 public class TMButtonScript : MonoBehaviour
 {
     public int buttonNumber;
+    public bool isUnlocked = false;
     public Material defaultMaterial;
     public Material selectedMaterial;
+    public Material unactivatedMaterial;
 
     private Renderer buttonRenderer;
     private static TMButtonScript currentlySelectedButton;
@@ -14,10 +16,20 @@ public class TMButtonScript : MonoBehaviour
     {
         buttonRenderer = GetComponent<Renderer>();
         buttonRenderer.material = defaultMaterial;
+
+        if (!isUnlocked)
+        {
+            buttonRenderer.material = unactivatedMaterial;
+        }
     }
 
     public void PressButton()
     {
+        if (!isUnlocked)
+        {
+            return;
+        }
+
         // Deactivate all other buttons
         if (currentlySelectedButton != null && currentlySelectedButton != this)
         {

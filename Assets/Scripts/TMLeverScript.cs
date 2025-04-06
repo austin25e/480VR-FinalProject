@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TMLeverScript : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class TMLeverScript : MonoBehaviour
         {
             Debug.Log($"Activated button {selectedButton.buttonNumber}");
             // Add your button-specific actions here
+            SceneManager.LoadScene(selectedButton.buttonNumber);
         }
         else
         {
