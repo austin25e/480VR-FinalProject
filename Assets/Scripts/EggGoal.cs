@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class EggGoal : MonoBehaviour
 {
     private int eggCount = 0;
-    public int targetEggs = 1;
+    public int targetEggs = 4;
 
     public GameObject winCanvas; 
 
