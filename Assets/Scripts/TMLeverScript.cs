@@ -10,6 +10,7 @@ public class TMLeverScript : MonoBehaviour
 
     [Header("Activation Settings")]
     public float activationDelay = 0.3f; // Time after rotation starts to activate
+    public AudioSource leverPullSFX;
 
     private bool isActivated = false;
     private Quaternion startRotation;
@@ -26,6 +27,7 @@ public class TMLeverScript : MonoBehaviour
     {
         if (!isActivated)
         {
+            leverPullSFX.Play();
             isActivated = true;
             rotationProgress = 0f;
             Invoke("ActivateButton", activationDelay);

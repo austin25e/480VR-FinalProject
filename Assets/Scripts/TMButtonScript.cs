@@ -4,6 +4,8 @@ public class TMButtonScript : MonoBehaviour
 {
     public int buttonNumber;
     public bool isUnlocked = false;
+    public bool isSelected = false;
+    public AudioSource buttonPressSFX;
     public Material defaultMaterial;
     public Material selectedMaterial;
     public Material unactivatedMaterial;
@@ -25,7 +27,7 @@ public class TMButtonScript : MonoBehaviour
 
     public void PressButton()
     {
-        if (!isUnlocked)
+        if (!isUnlocked || isSelected)
         {
             return;
         }
@@ -34,13 +36,16 @@ public class TMButtonScript : MonoBehaviour
         if (currentlySelectedButton != null && currentlySelectedButton != this)
         {
             Debug.Log("DEACTIVATE ALL OTHER BUTTONS");
+            currentlySelectedButton.isSelected = false;
             currentlySelectedButton.buttonRenderer.material = currentlySelectedButton.defaultMaterial;
         }
 
         // Select this button
         Debug.Log("SELECT THIS BUTTON");
+        isSelected = true;
         buttonRenderer.material = selectedMaterial;
         currentlySelectedButton = this;
+        buttonPressSFX.Play();
     }
 
     public static TMButtonScript GetSelectedButton()
