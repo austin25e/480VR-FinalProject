@@ -1,73 +1,58 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
+
 
 public class ShipController : MonoBehaviour
 {
-    public Transform wheel;                        // wood_wheel transform
-    public UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable;    // XR Grab Interactable on wheel
-    public Transform xrRig;                        // XR Origin (to move with the ship)
+    [Header("References")]
+    public Transform wheelTransform;       // Your wheel’s Transform (pivoted correctly)
+    public UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable wheelGrab;   // The XRGrabInteractable on that wheel
+    public Transform environmentToMove;    // The Island/world you want to shift
+    public Transform centerPoint;          // The fixed pivot (boat or XR Rig)
 
-    public float moveSpeed = 5f;
-    public float turnSpeed = 50f;
+    [Header("Settings")]
+    public float moveSpeed       = 5f;     // “Forward” speed in units/sec
+    public float turnSensitivity = 1f;     // Scale for wheel Δ‑angle → world rotation
 
-    private bool isGrabbed = false;
-    private float lastWheelY;
-    private Vector3 wheelStartPos;
-    private Vector3 lastShipPosition;
+    bool  isSteering    = false;
+    float lastWheelRotX = 0f;             // Track wheel’s X (or Z) axis rotation
 
-    void Start()
+    void Awake()
     {
-        if (grabInteractable != null)
-        {
-            grabInteractable.selectEntered.AddListener(OnGrab);
-            grabInteractable.selectExited.AddListener(OnRelease);
-        }
+        wheelGrab.selectEntered.AddListener(_ => BeginSteering());
+        wheelGrab.selectExited  .AddListener(_ => EndSteering());
+    }
 
-        wheelStartPos = wheel.position;
-        lastShipPosition = transform.position;
+    void BeginSteering()
+    {
+        isSteering    = true;
+        lastWheelRotX = wheelTransform.localEulerAngles.x;  // or .z if your wheel turns on Z
+    }
+
+    void EndSteering()
+    {
+        isSteering = false;
     }
 
     void Update()
     {
-        // Always lock the wheel's position in case of drifting
-        wheel.position = wheelStartPos;
+        if (!isSteering) return;
 
-        if (isGrabbed)
-        {
-            // Move the ship forward
-            Vector3 move = transform.forward * moveSpeed * Time.deltaTime;
-            transform.Translate(move, Space.World);
+        // 1) How much the wheel turned this frame
+        float currentX = wheelTransform.localEulerAngles.x;
+        float deltaX   = Mathf.DeltaAngle(lastWheelRotX, currentX);
+        lastWheelRotX  = currentX;
 
-            // Move XR rig with ship
-            Vector3 shipDelta = transform.position - lastShipPosition;
-            if (xrRig != null) xrRig.position += shipDelta;
-            lastShipPosition = transform.position;
+        // 2) Compute new position by rotating the offset vector,
+        //    but DO NOT change environmentToMove.rotation
+        Vector3 pivot  = centerPoint.position;
+        Vector3 offset = environmentToMove.position - pivot;
+        Quaternion rot = Quaternion.AngleAxis(-deltaX * turnSensitivity, Vector3.up);
+        Vector3 newPos = pivot + (rot * offset);
 
-            // Calculate rotation delta
-            float currentWheelY = wheel.localEulerAngles.y;
-            float turnInput = Mathf.DeltaAngle(lastWheelY, currentWheelY);
-            transform.Rotate(Vector3.up, turnInput * turnSpeed * Time.deltaTime / 90f);
-            lastWheelY = currentWheelY;
-        }
-    }
+        // 3) Slide backward “forward” motion
+        newPos += -centerPoint.forward * moveSpeed * Time.deltaTime;
 
-    void OnGrab(SelectEnterEventArgs args)
-    {
-        isGrabbed = true;
-        lastWheelY = wheel.localEulerAngles.y;
-    }
-
-    void OnRelease(SelectExitEventArgs args)
-    {
-        isGrabbed = false;
-    }
-
-    void OnDestroy()
-    {
-        if (grabInteractable != null)
-        {
-            grabInteractable.selectEntered.RemoveListener(OnGrab);
-            grabInteractable.selectExited.RemoveListener(OnRelease);
-        }
+        // 4) Apply ONLY position
+        environmentToMove.position = newPos;
     }
 }
