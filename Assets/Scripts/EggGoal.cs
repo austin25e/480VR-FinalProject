@@ -7,6 +7,7 @@ public class EggGoal : MonoBehaviour
     public int targetEggs = 4;
 
     public GameObject winCanvas; 
+    public TMButtonScript nextButton;
 
     private void Start()
     {
@@ -28,6 +29,7 @@ public class EggGoal : MonoBehaviour
                 if (winCanvas != null)
                 {
                     winCanvas.SetActive(true); 
+                    nextButton.isUnlocked = true;
                 }
             }
         }
