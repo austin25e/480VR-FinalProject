@@ -982,10 +982,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.853
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7218517866799230237, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: vrPlayer
       value: 
       objectReference: {fileID: 1946743954}
+    - target: {fileID: 7218517866799230237, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: followEnabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7658221601798711208, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.0059996527
