@@ -1,30 +1,53 @@
 using UnityEngine;
 using TMPro;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public TextMeshPro congratsText; // assign your “Congrats!” text here
 
-    [HideInInspector]
-    public int nailsHammered = 0;
+    [Header("Nail Game")]
+    public TextMeshProUGUI congratsText;    
     public int targetNails = 6;
+
+    [Header("Ship Unlock")]
+    public UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable wheelGrab;    
+    public MonoBehaviour       shipController; 
+
+    private int  nailsHammered = 0;
+    private bool nailGameDone  = false;
 
     void Awake()
     {
         if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        else { Destroy(gameObject); return; }
 
-        if (congratsText == null)
-            Debug.LogError("GameManager: congratsText not set!");
-        else
+        if (congratsText != null) 
             congratsText.gameObject.SetActive(false);
+
+        if (wheelGrab != null) 
+            wheelGrab.enabled = false;
+        if (shipController != null) 
+            shipController.enabled = false;
     }
 
     public void RegisterHammeredNail()
     {
+        if (nailGameDone) return;
+
         nailsHammered++;
         if (nailsHammered >= targetNails)
-            congratsText.gameObject.SetActive(true);
+        {
+            nailGameDone = true;
+
+            if (congratsText != null)
+                congratsText.gameObject.SetActive(true);
+
+            if (wheelGrab != null)
+                wheelGrab.enabled = true;
+
+            if (shipController != null)
+                shipController.enabled = true;
+        }
     }
 }

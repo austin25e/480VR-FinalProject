@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class NailController : MonoBehaviour
 {
-    [Header("Tuning")]
     public float hitDepth = 0.1f;
     public float maxDepth = 0.6f;
 
     Vector3 startPos;
-    Vector3 sinkDir;       // ← local‐axis direction to drive the nail
+    Vector3 sinkDir;      
     float   currentDepth;
     bool    isDone;
     GameManager gm;
@@ -18,14 +17,10 @@ public class NailController : MonoBehaviour
         currentDepth = 0f;
         isDone       = false;
 
-        // determine the axis the nail should move along.
-        // if your nail’s “tip” points out its local +Z, use transform.forward.
-        // if it points out local +Y, use transform.up. Here’s an example:
-        sinkDir = -transform.up;    // ← nail sinks along its negative local‑up
+        sinkDir = -transform.up;    
 
         gm = GameManager.Instance;
-        if (gm == null)
-            Debug.LogError("NailController: no GameManager in scene!");
+       
     }
 
     void OnCollisionEnter(Collision col)
