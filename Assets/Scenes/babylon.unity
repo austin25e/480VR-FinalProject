@@ -453,6 +453,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf9936e1cdbed440a706cbc9eff61fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instructionText: {fileID: 0}
+  instructionText1: {fileID: 0}
+  spawn_item: {fileID: 0}
+  spawn_location: {fileID: 0}
+  socket1: {fileID: 0}
+  socket2: {fileID: 0}
+  hitCount: 0
 --- !u!65 &77900854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -826,6 +833,7 @@ Transform:
   - {fileID: 1872948329}
   - {fileID: 1472945966}
   - {fileID: 69520072}
+  - {fileID: 279556727}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &122433800
@@ -1877,6 +1885,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c6d960b26161b984bbefd034139657d4, type: 3}
   m_PrefabInstance: {fileID: 268905662}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &279556727 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 99a93b2382e8b3b4ab40ffda5c174c02, type: 3}
+  m_PrefabInstance: {fileID: 1496495711}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &282477769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2647,6 +2660,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb92f6d5a91d3724db100e3fa82903e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 876119656}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Take the axe that you made and use it to collect wheat!
+            You'll need to collect 3 pieces to advance.
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &406294141
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7174,6 +7206,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb92f6d5a91d3724db100e3fa82903e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 876119656}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Find a stone and a stick and place them on the stump.
+            The items will be somewhere on the ground to your left!
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1437853801
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7777,7 +7828,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 109181068}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 99a93b2382e8b3b4ab40ffda5c174c02, type: 3}
       propertyPath: m_LocalScale.x
@@ -7793,7 +7844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99a93b2382e8b3b4ab40ffda5c174c02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 196.16
+      value: 133.16
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99a93b2382e8b3b4ab40ffda5c174c02, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7801,7 +7852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99a93b2382e8b3b4ab40ffda5c174c02, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 109.01
+      value: 85.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99a93b2382e8b3b4ab40ffda5c174c02, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7809,7 +7860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99a93b2382e8b3b4ab40ffda5c174c02, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99a93b2382e8b3b4ab40ffda5c174c02, type: 3}
       propertyPath: m_LocalRotation.y
@@ -8626,6 +8677,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb92f6d5a91d3724db100e3fa82903e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1781516901
 GameObject:
   m_ObjectHideFlags: 0
@@ -10448,7 +10505,6 @@ SceneRoots:
   - {fileID: 109181068}
   - {fileID: 1443033627}
   - {fileID: 122433800}
-  - {fileID: 1496495711}
   - {fileID: 1057657751}
   - {fileID: 540357115}
   - {fileID: 1768562808}

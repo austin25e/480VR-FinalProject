@@ -100,7 +100,7 @@ public class ChatManager : MonoBehaviour
                             break;
 
                         case "location":
-                            reply = "You are currently in the Cretaceous period, near the T-Rex!";
+                            reply = "You are currently in the Cretaceous period!";
                             break;
 
                         case "farewell":
