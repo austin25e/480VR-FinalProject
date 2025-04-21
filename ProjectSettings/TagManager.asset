@@ -11,6 +11,8 @@ TagManager:
   - dropped_wheat
   - stick
   - rock
+  - Hammer
+  - Nail
   layers:
   - Default
   - TransparentFX
