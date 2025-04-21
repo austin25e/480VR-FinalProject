@@ -7147,6 +7147,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+--- !u!114 &1443033628 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4570810819780882410, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+  m_PrefabInstance: {fileID: 1443033627}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294c13a4a3c184d9593b4b5f1ccbcc36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1450805681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8338,6 +8349,7 @@ MonoBehaviour:
   socket1: {fileID: 1818741705}
   socket2: {fileID: 1698197770}
   socket3: {fileID: 97249332}
+  nextButton: {fileID: 1443033628}
 --- !u!1 &1768562807
 GameObject:
   m_ObjectHideFlags: 0

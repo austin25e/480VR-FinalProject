@@ -1043,26 +1043,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1628179905}
     m_Modifications:
-    - target: {fileID: 1920338228347512090, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_text
-      value: Area 1 Cretaceous
-      objectReference: {fileID: 0}
-    - target: {fileID: 1920338228347512090, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_fontSize
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1920338228347512090, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2097942177476785663, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: m_Name
       value: SpaceShip 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2569774954871481756, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: leverPullSFX
+    - target: {fileID: 2609808793556886645, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: vrPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1979320274}
     - target: {fileID: 3051697512274136033, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.630951
@@ -1103,59 +1091,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -13.81
+    - target: {fileID: 7218517866799230237, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: vrPlayer
+      value: 
+      objectReference: {fileID: 1979320274}
+    - target: {fileID: 7218517866799230237, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: relativeOffset.x
+      value: -0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.67559016
-      objectReference: {fileID: 0}
-    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7372774
-      objectReference: {fileID: 0}
-    - target: {fileID: 6993618483138086217, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 95
-      objectReference: {fileID: 0}
-    - target: {fileID: 7565103302406441003, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7565103302406441003, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7565103302406441003, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7950163257537488216, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      propertyPath: m_text
-      value: 70 Million Years Ago
+    - target: {fileID: 7218517866799230237, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: relativeOffset.z
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 735405580350427051, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-    - {fileID: 8881016258056325949, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-    - {fileID: 8790522257790223393, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9161420351391973941, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
