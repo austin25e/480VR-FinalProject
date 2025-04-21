@@ -36,7 +36,7 @@ public class craftingAxe : MonoBehaviour
                 Quaternion spawnRotation = spawn_location.transform.rotation;
                 spawnPosition.y += 1.0f;
                 Instantiate(spawn_item, spawnPosition, spawnRotation);
-                instructionText1.SetActive(false);
+                instructionText1.SetActive(true);
             }
             hitCount++;
         } 
