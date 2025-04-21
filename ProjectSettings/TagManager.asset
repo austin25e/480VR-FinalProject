@@ -9,6 +9,8 @@ TagManager:
   - Axe
   - Wheat
   - dropped_wheat
+  - stick
+  - rock
   layers:
   - Default
   - TransparentFX
