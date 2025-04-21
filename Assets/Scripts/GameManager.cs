@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [Header("Nail Game")]
-    public TextMeshProUGUI congratsText;    
+    public TextMeshPro congratsText;    
     public int targetNails = 6;
 
     [Header("Ship Unlock")]

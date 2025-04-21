@@ -2330,7 +2330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf8c5818384f784b9bb94c7b164b156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  congratsText: {fileID: 0}
+  congratsText: {fileID: 1287506788}
   targetNails: 6
   wheelGrab: {fileID: 379854202}
   shipController: {fileID: 0}
