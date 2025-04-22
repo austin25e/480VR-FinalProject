@@ -75,7 +75,7 @@ public class ChatManager : MonoBehaviour
                             break;
 
                         case "location":
-                            reply = "You are currently in the time machine room!";
+                            reply = "You are currently in the time machine!";
                             break;
 
                         case "farewell":
@@ -96,7 +96,7 @@ public class ChatManager : MonoBehaviour
                             break;
 
                         case "objective":
-                            reply = "Your objective is to find the 3 dinsaur eggs hidden in this time period and bring them back to the shelves. You can find them by each dinosaur!";
+                            reply = "Your objective is to find the 3 dinosaur eggs hidden in this time period and bring them back to the shelves. You can find them by each dinosaur!";
                             break;
 
                         case "location":
@@ -144,7 +144,7 @@ public class ChatManager : MonoBehaviour
                             break;
 
                         case "objective":
-                            reply = "Your objective is to steer this vessel to the new world! Make sure you watch out for any trouble along the way!";
+                            reply = "Your objective is to repair the boat and then sail us to the new world!";
                             break;
 
                         case "location":
