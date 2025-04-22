@@ -1,0 +1,12 @@
+# ninja log v5
+76	671	7669757990328149	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	f5aafa20f4933b31
+675	1030	7669757993937498	C:/Users/noah/TimeTravel/480VR-FinalProject/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2g2u2z2w/obj/arm64-v8a/libswappywrapper.so	b045e49090381983
+34	2260	7669758006104387	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	33c7454be7179847
+17	2297	7669758006515173	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	e64f9aa1f058f6f6
+55	2349	7669758007060867	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	f916a16968e0f53a
+25	2476	7669758008329422	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	5006abf0d85b67b6
+66	2500	7669758008478321	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	5914bbcfdce370e9
+9	2621	7669758009848816	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	4bfc72233980bebc
+46	2856	7669758012241905	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	c949482d2b51dbc3
+1	3028	7669758013914201	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	8bbfa5b2bc91b2ea
+3028	3177	7669758015519223	C:/Users/noah/TimeTravel/480VR-FinalProject/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2g2u2z2w/obj/arm64-v8a/libgame.so	6b180b4306dd6155

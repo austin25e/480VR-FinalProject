@@ -381,6 +381,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8224101667920926014, guid: cbd121f2f5c20204297cd4d0e9bad9ad, type: 3}
   m_PrefabInstance: {fileID: 1349319291}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &323278032 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4864978980223542903, guid: cbd121f2f5c20204297cd4d0e9bad9ad, type: 3}
+  m_PrefabInstance: {fileID: 1349319291}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &323278033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,14 +393,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323278031}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d670853a6d7e6a448d3196fc2f45d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wheelTransform: {fileID: 1151388029339365392}
   wheelGrab: {fileID: 379854202}
-  environmentToMove: {fileID: 0}
+  environmentToMove: {fileID: 323278032}
   centerPoint: {fileID: 1628179905}
   moveSpeed: 30
   turnSensitivity: 5
@@ -2331,9 +2336,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   congratsText: {fileID: 1287506788}
-  targetNails: 6
+  targetNails: 1
   wheelGrab: {fileID: 379854202}
-  shipController: {fileID: 0}
+  shipController: {fileID: 323278033}
 --- !u!4 &1708430538
 Transform:
   m_ObjectHideFlags: 0
