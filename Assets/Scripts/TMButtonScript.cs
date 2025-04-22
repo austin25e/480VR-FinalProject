@@ -25,6 +25,20 @@ public class TMButtonScript : MonoBehaviour
         }
     }
 
+    public void UnlockButton(bool toggle)
+    {
+        isUnlocked = toggle;
+
+        if (toggle)
+        {
+            buttonRenderer.material = defaultMaterial;
+        }
+        else
+        {
+            buttonRenderer.material = unactivatedMaterial;
+        }
+    }
+
     public void PressButton()
     {
         if (!isUnlocked || isSelected)

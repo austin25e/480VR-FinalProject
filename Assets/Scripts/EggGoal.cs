@@ -29,7 +29,7 @@ public class EggGoal : MonoBehaviour
                 if (winCanvas != null)
                 {
                     winCanvas.SetActive(true); 
-                    nextButton.isUnlocked = true;
+                    nextButton.UnlockButton(true);
                 }
             }
         }

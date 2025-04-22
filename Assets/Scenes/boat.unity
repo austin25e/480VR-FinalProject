@@ -406,6 +406,7 @@ MonoBehaviour:
   turnSensitivity: 5
   finishDistance: 250
   congratsUI: {fileID: 2112853853}
+  nextButton: {fileID: 1205037168}
 --- !u!54 &323278034
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1549,6 +1550,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+--- !u!114 &1205037168 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 411783304713326825, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+  m_PrefabInstance: {fileID: 1205037167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294c13a4a3c184d9593b4b5f1ccbcc36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1240856235
 GameObject:
   m_ObjectHideFlags: 0

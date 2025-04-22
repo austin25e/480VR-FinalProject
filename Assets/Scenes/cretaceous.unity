@@ -1235,6 +1235,38 @@ PrefabInstance:
       propertyPath: vrPlayer
       value: 
       objectReference: {fileID: 1818222599}
+    - target: {fileID: 2982078467353971203, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982078467353971203, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982078467353971203, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982078467353971203, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 629400220}
+    - target: {fileID: 2982078467353971203, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982078467353971203, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateLever
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982078467353971203, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TMLeverScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982078467353971203, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3051697512274136033, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 161.18
@@ -2793,6 +2825,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622199575}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &629400220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2569774954871481756, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+  m_PrefabInstance: {fileID: 233010985}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe98501b640846d2a8fae940c3ba655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &642442552 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2184930412737185373, guid: 641ca9bc4acee26428887959da847ebe, type: 3}

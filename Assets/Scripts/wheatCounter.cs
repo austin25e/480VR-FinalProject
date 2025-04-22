@@ -15,7 +15,7 @@ public class wheatCounter : MonoBehaviour
         if (socket1.hasSelection && socket2.hasSelection && socket3.hasSelection)
         {
             winText.SetActive(true);
-            nextButton.isUnlocked = true;
+            nextButton.UnlockButton(true);
             Invoke("HideWinText", 8f);
         }
     }

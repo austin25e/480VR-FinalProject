@@ -18,7 +18,8 @@ public class ShipController : MonoBehaviour
 
     bool  isSteering    = false;
     bool  finished      = false;
-    float lastWheelRotX = 0f;             
+    float lastWheelRotX = 0f;       
+    public TMButtonScript nextButton;      
 
     void Awake()
     {
