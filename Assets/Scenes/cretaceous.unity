@@ -1230,6 +1230,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 583971002232455371, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: isUnlocked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1920338228347512090, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: m_text
       value: Area 1 Cretaceous
@@ -1391,19 +1395,19 @@ PrefabInstance:
     - {fileID: 5472757184783352829, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9161420351391973941, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8129016259156649682, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6498147570611186948, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 3172583293366872779, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5386215095827415195, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 3264071558496015147, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1208012817966284236, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 4898131468966766747, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1272789630865323250, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 7585927750714244198, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 4741727461352941403, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
@@ -1635,17 +1639,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d79367f68b722c4483fddc6fed39a65, type: 3}
---- !u!114 &325447019 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5369866168788691027, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-  m_PrefabInstance: {fileID: 233010985}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 294c13a4a3c184d9593b4b5f1ccbcc36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &350688438 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7259153037586359446, guid: 5a5216871d63bf64686bd0fbc02f1a2a, type: 3}
@@ -9843,7 +9836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetEggs: 4
   winCanvas: {fileID: 34957677}
-  nextButton: {fileID: 325447019}
+  nextButton: {fileID: 0}
 --- !u!65 &2022151630
 BoxCollider:
   m_ObjectHideFlags: 0
