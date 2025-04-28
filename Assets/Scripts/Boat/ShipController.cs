@@ -19,7 +19,8 @@ public class ShipController : MonoBehaviour
     bool  isSteering    = false;
     bool  finished      = false;
     float lastWheelRotX = 0f;       
-    public TMButtonScript nextButton;      
+    public TMButtonScript nextButton;    
+    public AudioSource wheelSteerSFX;  
 
     void Awake()
     {
@@ -33,12 +34,14 @@ public class ShipController : MonoBehaviour
     {
         if (finished) return;              
         isSteering    = true;
+        wheelSteerSFX.Play();
         lastWheelRotX = wheelTransform.localEulerAngles.x;
     }
 
     void EndSteering()
     {
         isSteering = false;
+        wheelSteerSFX.Stop();
     }
 
     void Update()
@@ -63,6 +66,7 @@ public class ShipController : MonoBehaviour
         {
             finished = true;
             isSteering = false;
+            nextButton.UnlockButton(true);
             if (congratsUI != null)
                 congratsUI.SetActive(true);
         }

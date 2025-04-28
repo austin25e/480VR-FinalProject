@@ -10,12 +10,14 @@ public class NailController : MonoBehaviour
     float   currentDepth;
     bool    isDone;
     GameManager gm;
+    private AudioSource nailHitSFX;
 
     void Start()
     {
         startPos     = transform.position;
         currentDepth = 0f;
         isDone       = false;
+        nailHitSFX = GetComponent<AudioSource>();
 
         sinkDir = -transform.up;    
 
@@ -35,6 +37,7 @@ public class NailController : MonoBehaviour
         {
             isDone = true;
             gm?.RegisterHammeredNail();
+            nailHitSFX.Play();
 
             // disable further hits
             GetComponent<Collider>().enabled = false;
