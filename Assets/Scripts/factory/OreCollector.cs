@@ -4,12 +4,14 @@ public class OreCollector : MonoBehaviour
 {
     public string acceptedOreTag;
     public Transform returnPoint; 
+    public FactoryGameController gameController;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(acceptedOreTag))
         {
             Debug.Log("Accepted: " + other.tag);
+            gameController?.ReportOre(other.tag);
             Destroy(other.gameObject);
         }
         else
