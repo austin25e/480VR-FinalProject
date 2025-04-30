@@ -56,11 +56,12 @@ public class EggGoal : MonoBehaviour
         if (eggCount >= targetEggs)
         {
             Debug.Log("You won!");
-            if (winCanvas != null)
-            {
-                winCanvas.SetActive(true);
-                nextButton.UnlockButton(true);
-            }
+            // if (winCanvas != null)
+            // {
+            // Debug.Log("Unlock next button!");
+            // winCanvas.SetActive(true);
+            nextButton.UnlockButton(true);
+            // }
         }
     }
 }

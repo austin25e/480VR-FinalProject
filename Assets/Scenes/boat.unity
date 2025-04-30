@@ -695,8 +695,8 @@ MonoBehaviour:
   turnSensitivity: 0.75
   finishDistance: 100
   congratsUI: {fileID: 194144078}
-  nextButton: {fileID: 0}
-  wheelSteerSFX: {fileID: 0}
+  nextButton: {fileID: 1205037168}
+  wheelSteerSFX: {fileID: 8164078559857411403}
 --- !u!54 &323278034
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2051,15 +2051,15 @@ PrefabInstance:
       objectReference: {fileID: 1979320274}
     - target: {fileID: 3051697512274136033, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.88427
+      value: -28.91
       objectReference: {fileID: 0}
     - target: {fileID: 3051697512274136033, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.8
+      value: 15.95
       objectReference: {fileID: 0}
     - target: {fileID: 3051697512274136033, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.476019
+      value: -11.38
       objectReference: {fileID: 0}
     - target: {fileID: 3051697512274136033, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2127,6 +2127,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+--- !u!114 &1205037168 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5435769445976654203, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+  m_PrefabInstance: {fileID: 1205037167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294c13a4a3c184d9593b4b5f1ccbcc36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1240856235
 GameObject:
   m_ObjectHideFlags: 0

@@ -1664,11 +1664,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3051697512274136033, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.33
+      value: 7.73
       objectReference: {fileID: 0}
     - target: {fileID: 3051697512274136033, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -36.62
+      value: -35.26
       objectReference: {fileID: 0}
     - target: {fileID: 3051697512274136033, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1789,6 +1789,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+--- !u!114 &233010986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 583971002232455371, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+  m_PrefabInstance: {fileID: 233010985}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294c13a4a3c184d9593b4b5f1ccbcc36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &235079443 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4885648729855342530, guid: 5d79367f68b722c4483fddc6fed39a65, type: 3}
@@ -10640,6 +10651,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93e6656ad0debf49a86eedb32b1f05a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetEggs: 3
+  winCanvas: {fileID: 0}
+  nextButton: {fileID: 233010986}
 --- !u!65 &2022151630
 BoxCollider:
   m_ObjectHideFlags: 0

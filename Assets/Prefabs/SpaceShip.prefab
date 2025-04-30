@@ -1341,7 +1341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6993618483138086217
 Transform:
   m_ObjectHideFlags: 0
@@ -17644,7 +17644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5069092218382029809, guid: cb379ca29651e4fc58b4e113c4eac759, type: 3}
       propertyPath: isUnlocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5069092218382029809, guid: cb379ca29651e4fc58b4e113c4eac759, type: 3}
       propertyPath: buttonNumber
