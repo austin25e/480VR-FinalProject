@@ -44,4 +44,35 @@ public class UpdateTimeSign : MonoBehaviour
                 break;
         }
     }
+
+    public void UpdateSign(int buttonNum)
+    {
+        switch (buttonNum)
+        {
+            case 1:
+                periodNameText.text = "Area 1 Cretaceous";
+                yearsText.text = "70 million years ago";
+                break;
+            case 2:
+                periodNameText.text = "Area 2 Mesopotamia";
+                yearsText.text = "10,000 BCE";
+                break;
+            case 3:
+                periodNameText.text = "Area 3 Atlantic Exploration";
+                yearsText.text = "1501-1600";
+                break;
+            case 4:
+                periodNameText.text = "Area 4 Industrial Revolution";
+                yearsText.text = "1801-1900";
+                break;
+            case 5:
+                periodNameText.text = "Area 5 Modern Day";
+                yearsText.text = "2025";
+                break;
+            default:
+                periodNameText.text = "-";
+                yearsText.text = "-";
+                break;
+        }
+    }
 }

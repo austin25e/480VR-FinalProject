@@ -18,6 +18,7 @@ public class TMButtonScript : MonoBehaviour
 
     public Renderer buttonRenderer;
     private static TMButtonScript currentlySelectedButton;
+    public UpdateTimeSign timeSignScript;
     private XRSimpleInteractable _interactable;
     private Vector3 origButtonPos = new Vector3(0, 3.286142e-05f, 0);
 
@@ -26,6 +27,7 @@ public class TMButtonScript : MonoBehaviour
     {
         // buttonRenderer = GetComponent<Renderer>();
         _interactable = GetComponent<XRSimpleInteractable>();
+        // timeSignScript = GetComponent<UpdateTimeSign>();
         buttonRenderer.material = defaultMaterial;
         // Debug.Log("BUTTON RENDERER: " + buttonRenderer.name);
 
@@ -84,6 +86,7 @@ public class TMButtonScript : MonoBehaviour
         isSelected = true;
         buttonRenderer.material = selectedMaterial;
         currentlySelectedButton = this;
+        timeSignScript.UpdateSign(this.buttonNumber);
         buttonPressSFX.Play();
     }
 

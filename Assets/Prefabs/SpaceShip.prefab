@@ -7304,6 +7304,7 @@ MonoBehaviour:
   selectedMaterial: {fileID: 2100000, guid: b6eb23b27e889416e8498757cab219bf, type: 2}
   unactivatedMaterial: {fileID: 2100000, guid: 3c6903bd6bc994778a5605177b44f7b1, type: 2}
   buttonRenderer: {fileID: 1779910915940797494}
+  timeSignScript: {fileID: 5626224558678681381}
 --- !u!114 &305966222980902898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8202,6 +8203,7 @@ MonoBehaviour:
   selectedMaterial: {fileID: 2100000, guid: b6eb23b27e889416e8498757cab219bf, type: 2}
   unactivatedMaterial: {fileID: 2100000, guid: 3c6903bd6bc994778a5605177b44f7b1, type: 2}
   buttonRenderer: {fileID: 229115675153705507}
+  timeSignScript: {fileID: 5626224558678681381}
 --- !u!114 &5770607921743921710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8959,6 +8961,7 @@ MonoBehaviour:
   selectedMaterial: {fileID: 2100000, guid: b6eb23b27e889416e8498757cab219bf, type: 2}
   unactivatedMaterial: {fileID: 2100000, guid: 3c6903bd6bc994778a5605177b44f7b1, type: 2}
   buttonRenderer: {fileID: 4347386669190109998}
+  timeSignScript: {fileID: 5626224558678681381}
 --- !u!114 &7617421628918010696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16815,6 +16818,7 @@ MonoBehaviour:
   selectedMaterial: {fileID: 2100000, guid: b6eb23b27e889416e8498757cab219bf, type: 2}
   unactivatedMaterial: {fileID: 2100000, guid: 3c6903bd6bc994778a5605177b44f7b1, type: 2}
   buttonRenderer: {fileID: 276878160513021619}
+  timeSignScript: {fileID: 5626224558678681381}
 --- !u!114 &3012277927181994225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17343,6 +17347,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3051697512274136033}
     m_Modifications:
+    - target: {fileID: 2611831074655348999, guid: 5bd685975a63f0542b3ac964a6f0f778, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2614241744216947712, guid: 5bd685975a63f0542b3ac964a6f0f778, type: 3}
       propertyPath: m_Name
       value: NPC
@@ -17644,7 +17652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5069092218382029809, guid: cb379ca29651e4fc58b4e113c4eac759, type: 3}
       propertyPath: isUnlocked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5069092218382029809, guid: cb379ca29651e4fc58b4e113c4eac759, type: 3}
       propertyPath: buttonNumber
@@ -17658,6 +17666,10 @@ PrefabInstance:
       propertyPath: buttonRenderer
       value: 
       objectReference: {fileID: 8050803405489240074}
+    - target: {fileID: 5069092218382029809, guid: cb379ca29651e4fc58b4e113c4eac759, type: 3}
+      propertyPath: timeSignScript
+      value: 
+      objectReference: {fileID: 5626224558678681381}
     - target: {fileID: 5069092218382029809, guid: cb379ca29651e4fc58b4e113c4eac759, type: 3}
       propertyPath: hoverLayer.m_Bits
       value: 32
