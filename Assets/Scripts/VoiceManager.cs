@@ -4,11 +4,13 @@ using Meta.WitAi.Requests;
 using Oculus.Voice;
 using Meta.Voice;
 using UnityEngine.SceneManagement;
+using Meta.WitAi.TTS.Utilities;
 
 public class ChatManager : MonoBehaviour
 {
     [SerializeField] private AppVoiceExperience voiceSDK;
     [SerializeField] private TextMeshPro chatLabel;
+    [SerializeField] private TTSSpeaker ttsSpeaker;
 
     void Awake()
     {
@@ -17,6 +19,11 @@ public class ChatManager : MonoBehaviour
         {
             Debug.LogError("Chat label is not assigned in the inspector.");
         }
+        if (ttsSpeaker == null)                                 // ➋
+            ttsSpeaker = FindFirstObjectByType<TTSSpeaker>();        //    auto-find the TTS speaker
+
+        if (ttsSpeaker == null)
+            Debug.LogError("TTSSpeaker component not found in scene. Please add TTSSpeaker.prefab.");
     }
 
     void OnEnable()
@@ -175,6 +182,11 @@ public class ChatManager : MonoBehaviour
 
         // Display your custom bot text
         chatLabel.text = $"{reply}";
+
+        if (ttsSpeaker != null && !string.IsNullOrEmpty(reply))
+        {
+            ttsSpeaker.Speak(reply);
+        }
 
         // Immediately listen again for a natural back‑and‑forth
         voiceSDK.Activate();

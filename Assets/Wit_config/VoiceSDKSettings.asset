@@ -22,23 +22,36 @@ MonoBehaviour:
     isPrivate: 1
     createdAt: 2025-03-31T18:28:44-0700
     trainingStatus: 1
-    lastTrainDuration: 54
-    lastTrainedAt: 2025-04-06T21:44:34-0700
-    nextTrainAt: 2025-04-06T21:43:40-0700
+    lastTrainDuration: 59
+    lastTrainedAt: 2025-04-21T00:26:54-0700
+    nextTrainAt: 2025-04-21T00:25:55-0700
     intents:
+    - id: 1367385641272194
+      name: farewell
+      entities:
+      - name: greeting:farewell
+        id: 619810827779772
     - id: 2860154874164426
       name: greeting
       entities:
       - name: greeting:greeting
         id: 1920749955417939
+    - id: 1722690165333898
+      name: location
+      entities:
+      - name: question:location
+        id: 1105398041627803
+    - id: 1219425226194640
+      name: objective
+      entities:
+      - name: question:objective
+        id: 1323772675398182
+    - id: 4084391321883570
+      name: question
+      entities: []
     - id: 1296954404714285
       name: response
       entities: []
-    - id: 1192181555963322
-      name: wake_word
-      entities:
-      - name: wake_word:wake_word
-        id: 1870001837152336
     - id: 1340455227287258
       name: wit$nevermind
       entities: []
@@ -49,28 +62,48 @@ MonoBehaviour:
       - free-text
       - keywords
       roles:
+      - name: farewell
+        id: 619810827779772
       - name: greeting
         id: 1920749955417939
       keywords:
+      - keyword: Goodbye
+        synonyms:
+        - bye
+        - goodbye
+        - see you later
       - keyword: Hello
         synonyms:
         - hello
         - hey
         - hi
-    - name: wake_word
-      id: 2057193758125913
+    - name: question
+      id: 1354033302314305
       lookups:
       - free-text
       - keywords
       roles:
-      - name: wake_word
-        id: 1870001837152336
+      - name: location
+        id: 1105398041627803
+      - name: objective
+        id: 1323772675398182
       keywords:
-      - keyword: hey tourguide
+      - keyword: what am i supposed to do?
         synonyms:
-        - hey tour guide
-        - hey tourguide
+        - objective
+        - what am i supposed to do?
+        - what should i do?
+      - keyword: where am i?
+        synonyms:
+        - location
+        - where am i?
+        - where are we?
     traits:
+    - name: wit$bye
+      id: 5900cc2e-09ed-4764-800c-11e7566acfac
+      values:
+      - id: 955a38ae-f188-46ba-ab6d-4988c5a4bea6
+        value: true
     - name: wit$greetings
       id: 5900cc2d-41b7-45b2-b21f-b950d3ae3c5c
       values:
