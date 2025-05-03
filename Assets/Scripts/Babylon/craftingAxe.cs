@@ -13,6 +13,7 @@ public class craftingAxe : MonoBehaviour
     public GameObject spawn_location;
     public XRSocketInteractor socket1;
     public XRSocketInteractor socket2;
+    public AudioSource craftSFX;
     public int hitCount = 0;
 
     private void OnTriggerEnter(Collider other)
@@ -28,6 +29,8 @@ public class craftingAxe : MonoBehaviour
 
                 GameObject item1 = interactable1.transform.gameObject;
                 GameObject item2 = interactable2.transform.gameObject;
+
+                craftSFX.Play();
 
                 Destroy(item1);
                 Destroy(item2);

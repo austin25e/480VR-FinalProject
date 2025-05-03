@@ -7,6 +7,7 @@ public class GrabTransparency : MonoBehaviour
     private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable;
     private Material[] materials;
     private float[] originalAlphas;
+    private AudioSource grabSFX;
 
     void Awake()
     {
@@ -17,6 +18,8 @@ public class GrabTransparency : MonoBehaviour
             grabInteractable.selectEntered.AddListener(OnGrab);
             grabInteractable.selectExited.AddListener(OnRelease);
         }
+
+        grabSFX = GetComponent<AudioSource>();
 
         // Store materials and their original alphas
         Renderer renderer = GetComponent<Renderer>();
@@ -36,6 +39,7 @@ public class GrabTransparency : MonoBehaviour
 
     void OnGrab(SelectEnterEventArgs args)
     {
+        grabSFX.Play();
         SetAlpha(grabAlpha);
     }
 
