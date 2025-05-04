@@ -240,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.196228
+      value: 23.52
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalPosition.y
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Axe
-  droppedWheat: {fileID: 0}
+  droppedWheat: {fileID: 7765850473264644966, guid: f01c23cd9517a63409b1fbcb99dc09c8, type: 3}
 --- !u!65 &46364224
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -459,12 +459,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instructionText: {fileID: 0}
   instructionText1: {fileID: 0}
-  spawn_item: {fileID: 0}
-  spawn_location: {fileID: 0}
-  socket1: {fileID: 0}
-  socket2: {fileID: 0}
+  spawn_item: {fileID: 503958557410895901, guid: 38971cb131bf8a348b13ef9167bfc083, type: 3}
+  spawn_location: {fileID: 876872161}
+  socket1: {fileID: 876872163}
+  socket2: {fileID: 909468858}
   craftSFX: {fileID: 77900855}
-  hitCount: 0
 --- !u!65 &77900854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2173,7 +2172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Axe
-  droppedWheat: {fileID: 0}
+  droppedWheat: {fileID: 7765850473264644966, guid: f01c23cd9517a63409b1fbcb99dc09c8, type: 3}
 --- !u!4 &239510836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
@@ -5306,7 +5305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.076233
+      value: 31.26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5314,7 +5313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.112373
+      value: 28.66
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5381,7 +5380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Axe
-  droppedWheat: {fileID: 0}
+  droppedWheat: {fileID: 7765850473264644966, guid: f01c23cd9517a63409b1fbcb99dc09c8, type: 3}
 --- !u!65 &832004481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7127,7 +7126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Axe
-  droppedWheat: {fileID: 0}
+  droppedWheat: {fileID: 7765850473264644966, guid: f01c23cd9517a63409b1fbcb99dc09c8, type: 3}
 --- !u!65 &916498670
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10422,7 +10421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.356232
+      value: 24.86
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11249,6 +11248,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1883230248363655243, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_FarAttachMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6232745470614056090, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_MinMoveDistance
       value: 0.01
@@ -12030,7 +12033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.70623
+      value: 33.47
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12038,7 +12041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.982376
+      value: 12.87
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12105,7 +12108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Axe
-  droppedWheat: {fileID: 0}
+  droppedWheat: {fileID: 7765850473264644966, guid: f01c23cd9517a63409b1fbcb99dc09c8, type: 3}
 --- !u!65 &1984690071
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12724,7 +12727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.556229
+      value: 22.09
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12732,7 +12735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.862373
+      value: 9.65
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eb5be28be48d7d4c971ebb379267093, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12799,7 +12802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Axe
-  droppedWheat: {fileID: 0}
+  droppedWheat: {fileID: 7765850473264644966, guid: f01c23cd9517a63409b1fbcb99dc09c8, type: 3}
 --- !u!65 &2144088308
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -14,16 +14,15 @@ public class craftingAxe : MonoBehaviour
     public XRSocketInteractor socket1;
     public XRSocketInteractor socket2;
     public AudioSource craftSFX;
-    public int hitCount = 0;
 
     private void OnTriggerEnter(Collider other)
     {
        if (socket1.hasSelection && socket2.hasSelection)
         {
-            instructionText.SetActive(true);
-            if (other.CompareTag("rock") && hitCount >= 1)
+            // instructionText.SetActive(true);
+            if (other.CompareTag("rock"))
             {
-                instructionText.SetActive(false);
+                // instructionText.SetActive(false);
                 IXRSelectInteractable interactable1 = socket1.GetOldestInteractableSelected();
                 IXRSelectInteractable interactable2 = socket2.GetOldestInteractableSelected();
 
@@ -39,9 +38,8 @@ public class craftingAxe : MonoBehaviour
                 Quaternion spawnRotation = spawn_location.transform.rotation;
                 spawnPosition.y += 1.0f;
                 Instantiate(spawn_item, spawnPosition, spawnRotation);
-                instructionText1.SetActive(true);
+                // instructionText1.SetActive(true);
             }
-            hitCount++;
         } 
 
 
