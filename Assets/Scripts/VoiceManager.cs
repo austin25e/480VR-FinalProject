@@ -11,16 +11,18 @@ public class ChatManager : MonoBehaviour
     [SerializeField] private AppVoiceExperience voiceSDK;
     [SerializeField] private TextMeshPro chatLabel;
     [SerializeField] private TTSSpeaker ttsSpeaker;
+    private int activeSceneNum;
 
     void Awake()
     {
+        activeSceneNum = SceneManager.GetActiveScene().buildIndex;
         if (voiceSDK == null) voiceSDK = FindFirstObjectByType<AppVoiceExperience>();
         if (chatLabel == null)
         {
             Debug.LogError("Chat label is not assigned in the inspector.");
         }
-        if (ttsSpeaker == null)                                 // ➋
-            ttsSpeaker = FindFirstObjectByType<TTSSpeaker>();        //    auto-find the TTS speaker
+        if (ttsSpeaker == null)
+            ttsSpeaker = FindFirstObjectByType<TTSSpeaker>();
 
         if (ttsSpeaker == null)
             Debug.LogError("TTSSpeaker component not found in scene. Please add TTSSpeaker.prefab.");
@@ -40,8 +42,53 @@ public class ChatManager : MonoBehaviour
 
     void Start()
     {
-        // Kick off the conversation
-        voiceSDK.Activate();
+        string introText = " ";
+
+        switch (activeSceneNum)
+        {
+            case 0:
+                introText = "Hello there traveler! I am your tour guide. You can interact with me with your voice! Try saying 'Hello'";
+                Debug.Log("Scene 0 loaded: Announcer will spawn here.");
+                break;
+            case 1:
+                introText = "Welcome to the Cretaceous Period! Your objective here is to collect 3 dinosaur eggs and return them to the shelves. I'll be following right behind you if you have any questions!";
+                Debug.Log("Scene 1 loaded: Announcer will spawn here.");
+                break;
+            case 2:
+                introText = "Welcome to Mesopotamia, head over to the bridge to start your task! Don't forget I'll be following right behind you if you have any questions!";
+                Debug.Log("Scene 2 loaded: Announcer will spawn here.");
+                break;
+            case 3:
+                introText = "Welcome to the Age of Exploration! Your objective is to repair the boat and then sail us to the new world! As always ill be behind you if you need me!";
+                Debug.Log("Scene 3 loaded: Announcer will spawn here.");
+                break;
+            case 4:
+                introText = "";
+                Debug.Log("Scene 4 loaded: Announcer will spawn here.");
+                break;
+            default:
+                introText = "There seems to be a problem with this timeline... I don't know where we are!";
+                Debug.Log("Unknown scene loaded: No specific action for announcer.");
+                break;
+        }
+
+        chatLabel.text = $"{introText}";
+
+        if (ttsSpeaker != null && !string.IsNullOrEmpty(introText))
+        {
+            ttsSpeaker.Speak(introText);
+            ttsSpeaker.Events.OnPlaybackStart.AddListener((speaker, clipData) =>
+            {
+                // Deactivate the voice SDK while TTS is playing
+                voiceSDK.Deactivate();
+            });
+
+            ttsSpeaker.Events.OnPlaybackComplete.AddListener((speaker, clipData) =>
+            {
+                // Reactivate the voice SDK after TTS has finished playing
+                voiceSDK.Activate();
+            });
+        }
     }
 
     // 1️⃣ User spoke → show it, then send to Wit for intent
@@ -50,6 +97,9 @@ public class ChatManager : MonoBehaviour
         //chatLabel.text = $"You: {userText}";
         voiceSDK.Activate(userText);
     }
+
+    
+
 
     // 2️⃣ Wit.ai responded → map to your custom reply, then display & listen again
     private void HandleBotResponded(VoiceServiceRequest req) //will be implmenting a tracking system to advance the diagloue as the player moves through the level.
@@ -60,8 +110,6 @@ public class ChatManager : MonoBehaviour
         var results = req.Results.ResponseData;
         var intents = results["intents"];
         string reply = " ";
-
-        int activeSceneNum = SceneManager.GetActiveScene().buildIndex;
 
         if (intents.Count > 0)
         {
@@ -93,7 +141,6 @@ public class ChatManager : MonoBehaviour
                             reply = "Sorry, I didn't catch that.";
                             break;
                     }
-
                     break;
                 case 1:
                     switch (topIntent)
@@ -186,10 +233,18 @@ public class ChatManager : MonoBehaviour
         if (ttsSpeaker != null && !string.IsNullOrEmpty(reply))
         {
             ttsSpeaker.Speak(reply);
-        }
+            ttsSpeaker.Events.OnPlaybackStart.AddListener((speaker, clipData) =>
+            {
+                // Deactivate the voice SDK while TTS is playing
+                voiceSDK.Deactivate();
+            });
 
-        // Immediately listen again for a natural back‑and‑forth
-        voiceSDK.Activate();
+            ttsSpeaker.Events.OnPlaybackComplete.AddListener((speaker, clipData) =>
+            {
+                // Reactivate the voice SDK after TTS has finished playing
+                voiceSDK.Activate();
+            });
+        }
     }
 
 }
