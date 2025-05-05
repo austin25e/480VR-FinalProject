@@ -7,8 +7,8 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class craftingAxe : MonoBehaviour
 {
-    public GameObject instructionText;
-    public GameObject instructionText1;
+    //public GameObject instructionText; --> not used anymore
+    //public GameObject instructionText1; --> not used anymore
     public GameObject spawn_item;
     public GameObject spawn_location;
     public XRSocketInteractor socket1;
@@ -20,6 +20,7 @@ public class craftingAxe : MonoBehaviour
        if (socket1.hasSelection && socket2.hasSelection)
         {
             // instructionText.SetActive(true);
+            ChatManager.Instance.AdvanceObjective();
             if (other.CompareTag("rock"))
             {
                 // instructionText.SetActive(false);
@@ -34,6 +35,7 @@ public class craftingAxe : MonoBehaviour
                 Destroy(item1);
                 Destroy(item2);
 
+                ChatManager.Instance.AdvanceObjective();
                 Vector3 spawnPosition = spawn_location.transform.position;
                 Quaternion spawnRotation = spawn_location.transform.rotation;
                 spawnPosition.y += 1.0f;
