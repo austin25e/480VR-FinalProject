@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class VRPlayerFollower : MonoBehaviour
 {
@@ -11,8 +13,36 @@ public class VRPlayerFollower : MonoBehaviour
     public float positionSmoothness = 5f;
     public float rotationSmoothness = 3f;
     public bool followEnabled = true;
+    private bool npcGrabbed = false;
 
     private Vector3 targetPosition;
+
+    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable;
+    private Rigidbody rigidBody;
+
+    void Start()
+    {
+        int activeSceneNum = SceneManager.GetActiveScene().buildIndex;
+        // Debug.Log("Active Scene is " + activeSceneNum);
+        if (activeSceneNum == 5)
+        {
+            grabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+            rigidBody = GetComponent<Rigidbody>();
+
+            if (grabInteractable != null && rigidBody != null)
+            {
+                grabInteractable.selectEntered.AddListener(OnGrab);
+                // grabInteractable.selectExited.AddListener(OnRelease);
+            }
+        }
+    }
+
+    private void OnGrab(SelectEnterEventArgs args)
+    {
+        // Debug.Log("Grabbing");
+        rigidBody.useGravity = true;
+        npcGrabbed = true;
+    }
 
     // Update is called once per frame
     void Update()
@@ -20,6 +50,7 @@ public class VRPlayerFollower : MonoBehaviour
         if (vrPlayer == null) return;
         if (playerAreaBox == null) return;
         if (followEnabled == false) return;
+        if (npcGrabbed == true) return;
 
         //TODO: Use the PlayerAreaBox to calculate the NPC's follow position as back right of the box instead of the actual player.
         // Calculate position in world space (ignoring player rotation)

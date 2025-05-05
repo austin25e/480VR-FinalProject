@@ -14,6 +14,8 @@ public class FactoryGameController : MonoBehaviour
     private int correctGearPlacements = 0;
     private bool gearGameUnlocked = false;
 
+    public TMButtonScript nextButton;
+
     void Start()
     {
         //if (winText != null)
@@ -57,6 +59,7 @@ public class FactoryGameController : MonoBehaviour
         {
             ChatManager.Instance.AdvanceObjective();
             //winText.gameObject.SetActive(true); --> No longer needed, handled in ChatManager
+            nextButton.UnlockButton(true);
         }
     }
 }
