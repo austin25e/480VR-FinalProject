@@ -67,7 +67,7 @@ public class ChatManager : MonoBehaviour
             { 2, new List<string>
                 {
                     // Babylon objectives
-                    "Welcome to Mesopotamia! Your first objective is to go to the other side of the bridge or explore the area.",
+                    "Welcome to Mesopotamia! Your objective is on the other side of the bridge or you can explore the area and find pedestals to learn more about this time period.",
                     "Your Objective is to find a stone and a stick and place them on the stump. The items will be somewhere on the ground to your left!",
                     "Find a stone and a stick near the trees and place them on the stump.",
                     "Find another stone and hit it against the objects on the stump",
@@ -88,7 +88,7 @@ public class ChatManager : MonoBehaviour
             { 4, new List<string>
                 {
                     // Industrial Revolution objectives
-                    "Welcome to the Industrial Revolution! Your first objective is to grab and place all of the ore on the right conveyor belt and coal on the left conveyor belt. You can also walk to the pedistal to learn more about the first major part of the industrial revolution.",
+                    "Welcome to the Industrial Revolution! Walk into the factory to begin! You can also walk to the pedistal to learn more about the first major part of the industrial revolution.",
                     "Your objective is to place the ore on the right conveyor belt and coal on the left conveyor belt.",
                     "The door is now open! Proceed through the door to the next room to continue.",
                     "Your next objective is to grab and place the 4 gears in the correct slots on the machine. The gears are located in front of you. To learn about the second major part of the industrial revolution, walk to the pedistal.",
@@ -98,7 +98,8 @@ public class ChatManager : MonoBehaviour
             { 5, new List<string>
                 {
                     // Modern day objectives
-                    "Welcome to the Modern Era! There are no objectives in this time period. Feel free to walk around and explore! If at any point you want to return to a previous time period, just walk to the time machine and select the time period you want to go to."
+                    "Welcome to the Modern Era! There are no objectives in this time period. Feel free to walk around and explore! If at any point you want to return to a previous time period, just walk to the time machine and select the time period you want to go to.",
+                    "There are no objectives for this time period. If at any point you want to return to a previous time period, just walk to the time machine and select the time period you want to go to."
                 }
             },
 
@@ -149,8 +150,7 @@ public class ChatManager : MonoBehaviour
         if (intents.Count == 0)
         {
             // Fallback reply
-            //chatLabel.text = "Sorry, I didn't catch that.";
-            //ttsSpeaker.Speak(chatLabel.text);
+            
             return;
         }
 
@@ -173,7 +173,6 @@ public class ChatManager : MonoBehaviour
                     case "greeting": reply = "Hello there, I am your tour guide!"; break;
                     case "location": reply = "You are currently in the time machine!"; break;
                     case "farewell": reply = "Safe travels!"; break;
-                    default: reply = "Sorry, I didn't catch that."; break;
                 }
                 break;
             case 1:
@@ -184,7 +183,6 @@ public class ChatManager : MonoBehaviour
                     case "farewell": reply = "Leaving so soon? We've only just begun!"; break;
                     case "confirm": /* Figuring out still? */ break;
                     case "denial": reply = "That's okay! You can always come back later!"; break;
-                    default: reply = "Sorry, I didn't catch that."; break;
                 }
                 break;
             case 2:
@@ -193,7 +191,6 @@ public class ChatManager : MonoBehaviour
                     case "greeting": reply = "Hello again!"; break;
                     case "location": reply = "You are currently in Mesopotamia, near the Tigris and Euphrates rivers!"; break;
                     case "farewell": reply = "You can't leave yet! You haven't finished the tour!"; break;
-                    default: reply = "Sorry, I didn't catch that."; break;
                 }
                 break;
             case 3:
@@ -202,7 +199,6 @@ public class ChatManager : MonoBehaviour
                     case "greeting": reply = "Hello young sailor!"; break;
                     case "location": reply = "You are currently in the Atlantic Ocean, sailing towards the new world!"; break;
                     case "farewell": reply = "Mutiny! You'll have to walk the plank if you leave now!"; break;
-                    default: reply = "Sorry, I didn't catch that."; break;
                 }
                 break;
             default:
