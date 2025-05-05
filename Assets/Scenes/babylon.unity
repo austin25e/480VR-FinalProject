@@ -457,8 +457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf9936e1cdbed440a706cbc9eff61fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructionText: {fileID: 0}
-  instructionText1: {fileID: 0}
   spawn_item: {fileID: 503958557410895901, guid: 38971cb131bf8a348b13ef9167bfc083, type: 3}
   spawn_location: {fileID: 876872161}
   socket1: {fileID: 876872163}
@@ -2832,6 +2830,7 @@ GameObject:
   - component: {fileID: 367733836}
   - component: {fileID: 367733835}
   - component: {fileID: 367733838}
+  - component: {fileID: 367733839}
   m_Layer: 0
   m_Name: App Voice Experience
   m_TagString: Untagged
@@ -3078,6 +3077,140 @@ MonoBehaviour:
     audioReadyDuration: 1.5
     audioMaxDuration: 15
   _presetVoiceSettings: []
+--- !u!114 &367733839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367733834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15403450229c3a4b8455a61d6143a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _events:
+    OnTextPlaybackStart:
+      m_PersistentCalls:
+        m_Calls: []
+    OnTextPlaybackCancelled:
+      m_PersistentCalls:
+        m_Calls: []
+    OnTextPlaybackFinished:
+      m_PersistentCalls:
+        m_Calls: []
+    OnAudioClipPlaybackReady:
+      m_PersistentCalls:
+        m_Calls: []
+    OnAudioClipPlaybackStart:
+      m_PersistentCalls:
+        m_Calls: []
+    OnAudioClipPlaybackCancelled:
+      m_PersistentCalls:
+        m_Calls: []
+    OnAudioClipPlaybackFinished:
+      m_PersistentCalls:
+        m_Calls: []
+    _onInit:
+      m_PersistentCalls:
+        m_Calls: []
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    _onLoadBegin:
+      m_PersistentCalls:
+        m_Calls: []
+    _onLoadAbort:
+      m_PersistentCalls:
+        m_Calls: []
+    _onLoadFailed:
+      m_PersistentCalls:
+        m_Calls: []
+    _onLoadSuccess:
+      m_PersistentCalls:
+        m_Calls: []
+    _onPlaybackReady:
+      m_PersistentCalls:
+        m_Calls: []
+    _onPlaybackStart:
+      m_PersistentCalls:
+        m_Calls: []
+    _onPlaybackCancelled:
+      m_PersistentCalls:
+        m_Calls: []
+    _onPlaybackClipUpdated:
+      m_PersistentCalls:
+        m_Calls: []
+    _onPlaybackComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    _onPlaybackQueueBegin:
+      m_PersistentCalls:
+        m_Calls: []
+    _onPlaybackQueueComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    OnClipDataQueued:
+      m_PersistentCalls:
+        m_Calls: []
+    OnClipLoadBegin:
+      m_PersistentCalls:
+        m_Calls: []
+    OnClipDataLoadBegin:
+      m_PersistentCalls:
+        m_Calls: []
+    OnClipLoadAbort:
+      m_PersistentCalls:
+        m_Calls: []
+    OnClipDataLoadAbort:
+      m_PersistentCalls:
+        m_Calls: []
+    OnClipLoadFailed:
+      m_PersistentCalls:
+        m_Calls: []
+    OnClipDataLoadFailed:
+      m_PersistentCalls:
+        m_Calls: []
+    OnClipLoadSuccess:
+      m_PersistentCalls:
+        m_Calls: []
+    OnClipDataLoadSuccess:
+      m_PersistentCalls:
+        m_Calls: []
+    OnClipDataPlaybackReady:
+      m_PersistentCalls:
+        m_Calls: []
+    OnStartSpeaking:
+      m_PersistentCalls:
+        m_Calls: []
+    OnClipDataPlaybackStart:
+      m_PersistentCalls:
+        m_Calls: []
+    OnCancelledSpeaking:
+      m_PersistentCalls:
+        m_Calls: []
+    OnClipDataPlaybackCancelled:
+      m_PersistentCalls:
+        m_Calls: []
+    OnFinishedSpeaking:
+      m_PersistentCalls:
+        m_Calls: []
+    OnClipDataPlaybackFinished:
+      m_PersistentCalls:
+        m_Calls: []
+  PrependedText: 
+  AppendedText: 
+  _ttsService: {fileID: 0}
+  presetVoiceID: 
+  customWitVoiceSettings:
+    SettingsId: 
+    PrependedText: 
+    AppendedText: 
+    voice: Charlie
+    style: default
+    speed: 100
+    pitch: 100
+  verboseLogging: 0
 --- !u!1001 &394680059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9222,6 +9355,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 94480637370064376, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: isUnlocked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2097942177476785663, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: m_Name
       value: SpaceShip 1
@@ -9274,6 +9411,10 @@ PrefabInstance:
       propertyPath: vrPlayer
       value: 
       objectReference: {fileID: 1818222599}
+    - target: {fileID: 7218517866799230237, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      propertyPath: followEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7218517866799230237, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       propertyPath: relativeOffset.x
       value: -0.5
@@ -9350,7 +9491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4fa6a080286b194bbf36dc8ef5fe396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chatLabel: {fileID: 0}
 --- !u!1001 &1450805681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10927,7 +11067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a945bf75bf53614689a6a34d6a9c76a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winText: {fileID: 1130115936}
   socket1: {fileID: 1818741705}
   socket2: {fileID: 1698197770}
   socket3: {fileID: 97249332}
