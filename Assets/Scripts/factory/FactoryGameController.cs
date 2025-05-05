@@ -8,7 +8,7 @@ public class FactoryGameController : MonoBehaviour
     private int coalCount = 0;
 
     public GameObject door; 
-    public TextMeshPro winText; 
+    //public TextMeshPro winText; --> No longer needed, handled in ChatManager
     public int Gears;
 
     private int correctGearPlacements = 0;
@@ -16,8 +16,8 @@ public class FactoryGameController : MonoBehaviour
 
     void Start()
     {
-        if (winText != null)
-            winText.gameObject.SetActive(false);
+        //if (winText != null)
+        //    winText.gameObject.SetActive(false); --> No longer needed, handled in ChatManager
     }
 
     public void ReportOre(string oreTag)
@@ -30,6 +30,7 @@ public class FactoryGameController : MonoBehaviour
         if (oreCount >= requiredOreCount && coalCount >= requiredOreCount)
         {
             UnlockGearGame();
+            ChatManager.Instance.AdvanceObjective();
         }
     }
 
@@ -52,9 +53,10 @@ public class FactoryGameController : MonoBehaviour
 
         correctGearPlacements++;
 
-        if (correctGearPlacements >= Gears && winText != null)
+        if (correctGearPlacements >= Gears) // && winText != null // --> No longer needed, handled in ChatManager
         {
-            winText.gameObject.SetActive(true);
+            ChatManager.Instance.AdvanceObjective();
+            //winText.gameObject.SetActive(true); --> No longer needed, handled in ChatManager
         }
     }
 }
