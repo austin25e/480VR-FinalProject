@@ -14,8 +14,7 @@ public class ShipController : MonoBehaviour
 
     [Header("Finish Condition")]
     public float finishDistance = 1f;       
-
-    //public GameObject congratsUI; --> Not used anymore    
+    public GameObject congratsUI;          
 
     bool  isSteering    = false;
     bool  finished      = false;
@@ -28,7 +27,7 @@ public class ShipController : MonoBehaviour
         wheelGrab.selectEntered.AddListener(_ => BeginSteering());
         wheelGrab.selectExited .AddListener(_ => EndSteering());
 
-        //if (congratsUI != null) congratsUI.SetActive(false);
+        if (congratsUI != null) congratsUI.SetActive(false);
     }
 
     void BeginSteering()
@@ -68,9 +67,8 @@ public class ShipController : MonoBehaviour
             finished = true;
             isSteering = false;
             nextButton.UnlockButton(true);
-            //if (congratsUI != null)
-            //    congratsUI.SetActive(true);
-            ChatManager.Instance.AdvanceObjective();
+            if (congratsUI != null)
+                congratsUI.SetActive(true);
         }
     }
 }

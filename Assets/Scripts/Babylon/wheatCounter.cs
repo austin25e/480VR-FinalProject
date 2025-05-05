@@ -4,7 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class wheatCounter : MonoBehaviour
 {
-    //public GameObject winText; --> not used anymore
+    public GameObject winText;
     public XRSocketInteractor socket1;
     public XRSocketInteractor socket2;
     public XRSocketInteractor socket3;
@@ -14,9 +14,9 @@ public class wheatCounter : MonoBehaviour
     {
         if (socket1.hasSelection && socket2.hasSelection && socket3.hasSelection)
         {
-            ChatManager.Instance.AdvanceObjective();
+            winText.SetActive(true);
             nextButton.UnlockButton(true);
-            //Invoke("HideWinText", 8f);
+            Invoke("HideWinText", 8f);
         }
     }
 }
