@@ -7,17 +7,17 @@ public class EggGoal : MonoBehaviour
     private int eggCount = 0;
     public int targetEggs;
 
-    public GameObject winCanvas;
+    //public GameObject winCanvas; -- No long used
     public TMButtonScript nextButton;
 
     private HashSet<GameObject> countedEggs = new HashSet<GameObject>();
 
     private void Start()
     {
-        if (winCanvas != null)
-        {
-            winCanvas.SetActive(false);
-        }
+        //if (winCanvas != null)
+        //{
+        //    winCanvas.SetActive(false);
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,6 +28,7 @@ public class EggGoal : MonoBehaviour
             {
                 countedEggs.Add(other.gameObject);
                 eggCount++;
+                ChatManager.Instance.AdvanceObjective();
                 CheckWin();
             }
         }
@@ -43,10 +44,10 @@ public class EggGoal : MonoBehaviour
                 eggCount--;
 
                 // Optional: hide the win canvas if an egg leaves
-                if (winCanvas != null)
-                {
-                    winCanvas.SetActive(false);
-                }
+                //if (winCanvas != null)
+                //{
+                //    winCanvas.SetActive(false);
+                //}
             }
         }
     }
@@ -60,8 +61,13 @@ public class EggGoal : MonoBehaviour
             // {
             // Debug.Log("Unlock next button!");
             // winCanvas.SetActive(true);
+            ChatManager.Instance.AdvanceObjective();
             nextButton.UnlockButton(true);
             // }
+        }
+        else
+        {
+            ChatManager.Instance.NoSpeakAdvanceObjective();
         }
     }
 }

@@ -149,8 +149,8 @@ public class ChatManager : MonoBehaviour
         if (intents.Count == 0)
         {
             // Fallback reply
-            chatLabel.text = "Sorry, I didn't catch that.";
-            ttsSpeaker.Speak(chatLabel.text);
+            //chatLabel.text = "Sorry, I didn't catch that.";
+            //ttsSpeaker.Speak(chatLabel.text);
             return;
         }
 
