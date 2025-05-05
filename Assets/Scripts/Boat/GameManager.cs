@@ -36,12 +36,14 @@ public class GameManager : MonoBehaviour
         if (nailGameDone) return;
 
         nailsHammered++;
+        ChatManager.Instance.AdvanceObjective();
         if (nailsHammered >= targetNails)
         {
             nailGameDone = true;
 
-            if (congratsText != null)
-                congratsText.gameObject.SetActive(true);
+            //if (congratsText != null)
+            //    congratsText.gameObject.SetActive(true);
+            ChatManager.Instance.AdvanceObjective();
 
             if (wheelGrab != null)
                 wheelGrab.enabled = true;
