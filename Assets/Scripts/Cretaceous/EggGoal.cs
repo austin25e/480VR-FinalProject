@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class EggGoal : MonoBehaviour
@@ -7,18 +6,10 @@ public class EggGoal : MonoBehaviour
     private int eggCount = 0;
     public int targetEggs;
 
-    //public GameObject winCanvas; -- No long used
     public TMButtonScript nextButton;
 
     private HashSet<GameObject> countedEggs = new HashSet<GameObject>();
-
-    private void Start()
-    {
-        //if (winCanvas != null)
-        //{
-        //    winCanvas.SetActive(false);
-        //}
-    }
+    private bool hasWon = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,8 +17,10 @@ public class EggGoal : MonoBehaviour
         {
             if (!countedEggs.Contains(other.gameObject))
             {
+                Debug.Log("Enter!");
                 countedEggs.Add(other.gameObject);
                 eggCount++;
+
                 ChatManager.Instance.AdvanceObjective();
                 CheckWin();
             }
@@ -40,14 +33,11 @@ public class EggGoal : MonoBehaviour
         {
             if (countedEggs.Contains(other.gameObject))
             {
+                Debug.Log("Exit!");
                 countedEggs.Remove(other.gameObject);
                 eggCount--;
 
-                // Optional: hide the win canvas if an egg leaves
-                //if (winCanvas != null)
-                //{
-                //    winCanvas.SetActive(false);
-                //}
+                CheckWin();
             }
         }
     }
@@ -56,17 +46,22 @@ public class EggGoal : MonoBehaviour
     {
         if (eggCount >= targetEggs)
         {
-            Debug.Log("You won!");
-            // if (winCanvas != null)
-            // {
-            // Debug.Log("Unlock next button!");
-            // winCanvas.SetActive(true);
-            ChatManager.Instance.AdvanceObjective();
-            nextButton.UnlockButton(true);
-            // }
+            if (!hasWon)
+            {
+                Debug.Log("You won!");
+                hasWon = true;
+                nextButton.UnlockButton(true);
+            }
         }
         else
         {
+            if (hasWon)
+            {
+                Debug.Log("Lost win state due to egg removal.");
+                nextButton.UnlockButton(false);
+                hasWon = false;
+            }
+
             ChatManager.Instance.NoSpeakAdvanceObjective();
         }
     }
