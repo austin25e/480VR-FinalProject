@@ -3639,8 +3639,8 @@ MonoBehaviour:
   RequestSettings:
     _configuration: {fileID: 11400000, guid: 6c7c99cb7ffa8954ca0fa56643079a00, type: 2}
     audioType: 1
-    audioStream: 1
-    useEvents: 1
+    audioStream: 0
+    useEvents: 0
     audioStreamPreloadCount: 5
     audioReadyDuration: 1.5
     audioMaxDuration: 15
@@ -9774,7 +9774,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -14804,15 +14804,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3390216214679398074, guid: 5bd685975a63f0542b3ac964a6f0f778, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 220.2
+      value: -9.821
       objectReference: {fileID: 0}
     - target: {fileID: 3390216214679398074, guid: 5bd685975a63f0542b3ac964a6f0f778, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 37.125
+      value: 1.38031
       objectReference: {fileID: 0}
     - target: {fileID: 3390216214679398074, guid: 5bd685975a63f0542b3ac964a6f0f778, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 85.647
+      value: -2.962
       objectReference: {fileID: 0}
     - target: {fileID: 3390216214679398074, guid: 5bd685975a63f0542b3ac964a6f0f778, type: 3}
       propertyPath: m_LocalRotation.w

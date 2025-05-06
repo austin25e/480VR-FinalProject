@@ -20,7 +20,7 @@ public class ChatManager : MonoBehaviour
     // Hardcoded dialogue objectives per scene
     private Dictionary<int, List<string>> _dialogueLookup;
     private int _activeSceneNum;
-    private int _currentObjective = 0;
+    private int _currentObjective;
 
     void Awake()
     {
@@ -41,6 +41,17 @@ public class ChatManager : MonoBehaviour
         if (chatLabel == null) Debug.LogError("Chat label not assigned");
         if (ttsSpeaker == null) ttsSpeaker = FindFirstObjectByType<TTSSpeaker>();
 
+        // Locate the TTSSpeaker instance in the scene
+        if (ttsSpeaker == null)
+            ttsSpeaker = FindFirstObjectByType<TTSSpeaker>();
+
+        // Make sure it has an AudioSource
+        if (ttsSpeaker != null && ttsSpeaker.GetComponent<AudioSource>() == null)
+        {
+            Debug.LogWarning("AudioSource missing on TTSSpeaker—adding one at runtime.");
+            var src = ttsSpeaker.gameObject.AddComponent<AudioSource>();
+            src.playOnAwake = false;
+        }
         // Determine active scene index
         _activeSceneNum = SceneManager.GetActiveScene().buildIndex;
 
@@ -110,21 +121,58 @@ public class ChatManager : MonoBehaviour
     {
         voiceSDK.VoiceEvents.OnFullTranscription.AddListener(HandleUserSpoke);
         voiceSDK.VoiceEvents.OnComplete.AddListener(HandleBotResponse);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnDisable()
     {
         voiceSDK.VoiceEvents.OnFullTranscription.RemoveListener(HandleUserSpoke);
         voiceSDK.VoiceEvents.OnComplete.RemoveListener(HandleBotResponse);
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        _activeSceneNum = scene.buildIndex;
+        _currentObjective = 0;
+
+        // Re-find per-scene objects if needed:
+        voiceSDK = FindFirstObjectByType<AppVoiceExperience>();
+        ttsSpeaker = FindFirstObjectByType<TTSSpeaker>();
+
+        if (ttsSpeaker == null)
+        {
+            Debug.LogWarning("TTSSpeaker not found in the new scene!");
+            return;
+        }
+
+        // Ensure TTSSpeaker has an AudioSource
+        if (ttsSpeaker.GetComponent<AudioSource>() == null)
+        {
+            Debug.LogWarning("AudioSource missing on TTSSpeaker—adding one at runtime.");
+            var src = ttsSpeaker.gameObject.AddComponent<AudioSource>();
+            src.playOnAwake = false;
+        }
+
+        // Speak the intro or first objective for the new scene:
+        SpeakObjective();
     }
 
     void Start()
     {
         // Speak the initial objective
         _currentObjective = 0;
+        _activeSceneNum = SceneManager.GetActiveScene().buildIndex;
         SpeakObjective();
     }
 
+    void Update()
+    {
+        if (!voiceSDK.Active && !ttsSpeaker.IsSpeaking)
+        {
+            voiceSDK.Activate();
+        }
+    }
     //Speak current objective for this scene.
     private void SpeakObjective()
     {
@@ -135,6 +183,7 @@ public class ChatManager : MonoBehaviour
         ttsSpeaker.Speak(text);
         ttsSpeaker.Events.OnPlaybackStart.AddListener((s, c) => voiceSDK.Deactivate());
         ttsSpeaker.Events.OnPlaybackComplete.AddListener((s, c) => voiceSDK.Activate());
+        ttsSpeaker.Events.OnPlaybackComplete.AddListener((s, c) => chatLabel.text = string.Empty);
     }
 
     private void HandleUserSpoke(string userText)
@@ -150,7 +199,6 @@ public class ChatManager : MonoBehaviour
         if (intents.Count == 0)
         {
             // Fallback reply
-            
             return;
         }
 
@@ -181,8 +229,8 @@ public class ChatManager : MonoBehaviour
                     case "greeting": reply = "Hello there, I am still here!"; break;
                     case "location": reply = "You are currently in the Cretaceous period!"; break;
                     case "farewell": reply = "Leaving so soon? We've only just begun!"; break;
-                    case "confirm": /* Figuring out still? */ break;
-                    case "denial": reply = "That's okay! You can always come back later!"; break;
+                        //case "confirm": /* Figuring out still? */ break;
+                        //case "denial": reply = "That's okay! You can always come back later!"; break;
                 }
                 break;
             case 2:
@@ -201,6 +249,14 @@ public class ChatManager : MonoBehaviour
                     case "farewell": reply = "Mutiny! You'll have to walk the plank if you leave now!"; break;
                 }
                 break;
+            case 4:
+                switch (intent)
+                {
+                    case "greeting": reply = "Hello there, I am still here!"; break;
+                    case "location": reply = "You are currently in the Industrial Revolution!"; break;
+                    case "farewell": reply = "You can't escape the factory! Mu ha ha ha!"; break;
+                }
+                break;
             default:
                 reply = "Sorry, there seems to be a problem with this timeline..."; break;
         }
@@ -210,6 +266,8 @@ public class ChatManager : MonoBehaviour
         ttsSpeaker.Speak(reply);
         ttsSpeaker.Events.OnPlaybackStart.AddListener((s, c) => voiceSDK.Deactivate());
         ttsSpeaker.Events.OnPlaybackComplete.AddListener((s, c) => voiceSDK.Activate());
+        ttsSpeaker.Events.OnPlaybackComplete.AddListener((s, c) => chatLabel.text = string.Empty);
+
     }
 
     //Advance the objective counter and announce next.

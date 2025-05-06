@@ -8216,8 +8216,8 @@ MonoBehaviour:
   RequestSettings:
     _configuration: {fileID: 11400000, guid: 6c7c99cb7ffa8954ca0fa56643079a00, type: 2}
     audioType: 1
-    audioStream: 1
-    useEvents: 1
+    audioStream: 0
+    useEvents: 0
     audioStreamPreloadCount: 5
     audioReadyDuration: 1.5
     audioMaxDuration: 15
