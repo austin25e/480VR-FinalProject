@@ -22,10 +22,20 @@ MonoBehaviour:
     isPrivate: 1
     createdAt: 2025-03-31T18:28:44-0700
     trainingStatus: 1
-    lastTrainDuration: 59
-    lastTrainedAt: 2025-04-21T00:26:54-0700
-    nextTrainAt: 2025-04-21T00:25:55-0700
+    lastTrainDuration: 48
+    lastTrainedAt: 2025-05-04T19:35:48-0700
+    nextTrainAt: 2025-05-04T19:35:00-0700
     intents:
+    - id: 1204453007880442
+      name: confirm
+      entities:
+      - name: confirmation:confirmation
+        id: 659747860189904
+    - id: 1216589320135771
+      name: denial
+      entities:
+      - name: confirmation:denial
+        id: 1973129513494205
     - id: 1367385641272194
       name: farewell
       entities:
@@ -56,6 +66,23 @@ MonoBehaviour:
       name: wit$nevermind
       entities: []
     entities:
+    - name: confirmation
+      id: 1343872606897484
+      lookups:
+      - free-text
+      - keywords
+      roles:
+      - name: confirmation
+        id: 659747860189904
+      - name: denial
+        id: 1973129513494205
+      keywords:
+      - keyword: No
+        synonyms:
+        - no
+      - keyword: Yes
+        synonyms:
+        - yes
     - name: greeting
       id: 1424512605591161
       lookups:
@@ -77,6 +104,12 @@ MonoBehaviour:
         - hello
         - hey
         - hi
+      - keyword: No
+        synonyms:
+        - no
+      - keyword: Yes
+        synonyms:
+        - yes
     - name: question
       id: 1354033302314305
       lookups:

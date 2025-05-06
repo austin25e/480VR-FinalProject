@@ -119,16 +119,18 @@ public class ChatManager : MonoBehaviour
 
     void OnEnable()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         voiceSDK.VoiceEvents.OnFullTranscription.AddListener(HandleUserSpoke);
         voiceSDK.VoiceEvents.OnComplete.AddListener(HandleBotResponse);
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        
     }
 
     void OnDisable()
     {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
         voiceSDK.VoiceEvents.OnFullTranscription.RemoveListener(HandleUserSpoke);
         voiceSDK.VoiceEvents.OnComplete.RemoveListener(HandleBotResponse);
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -155,14 +157,19 @@ public class ChatManager : MonoBehaviour
         }
 
         // Speak the intro or first objective for the new scene:
-        SpeakObjective();
+        Debug.Log($"Scene {scene.name} loaded. Current objective: {_currentObjective}");
+        if (_activeSceneNum != 0)
+        {
+            SpeakObjective();
+        }
+        
     }
 
     void Start()
     {
         // Speak the initial objective
-        _currentObjective = 0;
-        _activeSceneNum = SceneManager.GetActiveScene().buildIndex;
+        //_currentObjective = 0;
+        //_activeSceneNum = SceneManager.GetActiveScene().buildIndex;
         SpeakObjective();
     }
 
@@ -180,10 +187,12 @@ public class ChatManager : MonoBehaviour
         _currentObjective = Mathf.Clamp(_currentObjective, 0, list.Count - 1);
         string text = list[_currentObjective];
         chatLabel.text = text;
+
         ttsSpeaker.Speak(text);
         ttsSpeaker.Events.OnPlaybackStart.AddListener((s, c) => voiceSDK.Deactivate());
         ttsSpeaker.Events.OnPlaybackComplete.AddListener((s, c) => voiceSDK.Activate());
-        ttsSpeaker.Events.OnPlaybackComplete.AddListener((s, c) => chatLabel.text = string.Empty);
+        ttsSpeaker.Events.OnPlaybackComplete.AddListener((s, c) => chatLabel.text = " ");
+        
     }
 
     private void HandleUserSpoke(string userText)
@@ -263,11 +272,11 @@ public class ChatManager : MonoBehaviour
 
         if (string.IsNullOrEmpty(reply)) return;
         chatLabel.text = reply;
+
         ttsSpeaker.Speak(reply);
         ttsSpeaker.Events.OnPlaybackStart.AddListener((s, c) => voiceSDK.Deactivate());
         ttsSpeaker.Events.OnPlaybackComplete.AddListener((s, c) => voiceSDK.Activate());
-        ttsSpeaker.Events.OnPlaybackComplete.AddListener((s, c) => chatLabel.text = string.Empty);
-
+        ttsSpeaker.Events.OnPlaybackComplete.AddListener((s, c) => chatLabel.text = " ");
     }
 
     //Advance the objective counter and announce next.
