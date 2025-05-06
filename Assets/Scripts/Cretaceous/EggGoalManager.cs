@@ -12,7 +12,7 @@ public class EggGoalManager : MonoBehaviour
     {
         totalEggsPlaced++;
         ChatManager.Instance.AdvanceObjective();
-
+        ChatManager.Instance.NoSpeakAdvanceObjective();
         if (!hasWon && totalEggsPlaced >= targetEggs)
         {
             hasWon = true;
