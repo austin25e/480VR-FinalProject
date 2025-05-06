@@ -2712,10 +2712,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 107945473248122129, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       insertIndex: 0
-      addedObject: {fileID: 1823168284}
-    - targetCorrespondingSourceObject: {fileID: 107945473248122129, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1773287697}
+    - targetCorrespondingSourceObject: {fileID: 107945473248122129, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1823168284}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8129016259156649682, guid: 2f70c86b835216f4888d01cc0cf0105a, type: 3}
       insertIndex: -1
@@ -8216,8 +8216,9 @@ MonoBehaviour:
   RequestSettings:
     _configuration: {fileID: 11400000, guid: 6c7c99cb7ffa8954ca0fa56643079a00, type: 2}
     audioType: 1
-    audioStream: 0
+    audioStream: 1
     useEvents: 0
+    audioStreamTimeoutMs: 10000
     audioStreamPreloadCount: 5
     audioReadyDuration: 1.5
     audioMaxDuration: 15
@@ -8342,7 +8343,6 @@ MonoBehaviour:
     minKeepAliveTimeInSeconds: 2
     minTranscriptionKeepAliveTimeInSeconds: 1
     maxRecordingTime: 20
-    overrideTimeoutMs: 0
     soundWakeThreshold: 0.0005
     sampleLengthInMs: 10
     micBufferLengthInSeconds: 1

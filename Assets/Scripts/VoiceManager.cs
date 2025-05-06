@@ -28,7 +28,7 @@ public class ChatManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -61,8 +61,7 @@ public class ChatManager : MonoBehaviour
             { 0, new List<string>
                 {
                     // Starting ship objectives
-                    "Hello there traveler! I am your tour guide. You can interact with me with your voice! You can move around using the left joystick and look around by moving your head.",
-                    "Walk up and press on the first time period and then pull the lever."
+                    "Hello there traveler! I am your tour guide. You can interact with me with your voice! You can move around using the left joystick and look around by moving your head. Walk up and press on the first time period and then grab and pull the lever."
                 }
             },
             { 1, new List<string>
@@ -70,8 +69,8 @@ public class ChatManager : MonoBehaviour
                     // Cretaceous objectives
                     "Welcome to the Cretaceous Period! Your objective is to find the 3 dinosaur eggs hidden in this time period and bring them back to the shelves",
                     "Find the 3 dinosaur eggs hidden in this time period and bring them back to the shelves",
-                    "2 eggs left to find!", "Find the eggs and bring them back to the shelves",
-                    "1 egg left to find!", "Find the eggs and bring them back to the shelves",
+                    "2 eggs left to find!", "Find the rest of the eggs and bring them back to the shelves",
+                    "1 egg left to find!", "Find the rest of the eggs and bring them back to the shelves",
                     "Congratulations! You have found all of the dinosaur eggs! Now head back to the time machine and select the next time period.",
                 }
             },
@@ -91,7 +90,7 @@ public class ChatManager : MonoBehaviour
                     // Boat objectives
                     "Welcome to the Age of Exploration! Your objective is to repair the boat and then sail us to the new world. There are 6 nails to hammer in. You can find the hammer on the ground near you and the nails sticking out of the boat.",
                     "5 nails left to hammer in!", "4 nails left to hammer in!", "3 nails left to hammer in!", "2 nails left to hammer in!",
-                    "1 nail left to hammer in!", "Congratulations! You have repaired the boat! Now head to the wheel and steer us to the new world.",
+                    "1 nail left to hammer in!", "You have repaired the boat! Now head to the wheel and steer us to the new world.",
                     "To steer the boat, grab the wheel and turn it left or right.",
                     "Congratulations! You landed! To continue, head back to the time machine and select the next time period."
                 }
@@ -122,7 +121,6 @@ public class ChatManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         voiceSDK.VoiceEvents.OnFullTranscription.AddListener(HandleUserSpoke);
         voiceSDK.VoiceEvents.OnComplete.AddListener(HandleBotResponse);
-        
     }
 
     void OnDisable()
@@ -130,11 +128,11 @@ public class ChatManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
         voiceSDK.VoiceEvents.OnFullTranscription.RemoveListener(HandleUserSpoke);
         voiceSDK.VoiceEvents.OnComplete.RemoveListener(HandleBotResponse);
-        
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (scene.buildIndex == 0) return; // Skip the main menu scene
         _activeSceneNum = scene.buildIndex;
         _currentObjective = 0;
 
@@ -158,10 +156,7 @@ public class ChatManager : MonoBehaviour
 
         // Speak the intro or first objective for the new scene:
         Debug.Log($"Scene {scene.name} loaded. Current objective: {_currentObjective}");
-        if (_activeSceneNum != 0)
-        {
-            SpeakObjective();
-        }
+        //SpeakObjective();
         
     }
 
@@ -180,6 +175,7 @@ public class ChatManager : MonoBehaviour
             voiceSDK.Activate();
         }
     }
+
     //Speak current objective for this scene.
     private void SpeakObjective()
     {
@@ -217,7 +213,7 @@ public class ChatManager : MonoBehaviour
         if (intent == "objective")
         {
             SpeakObjective();
-            return;
+            //return;
         }
 
         // Static intent responses per scene

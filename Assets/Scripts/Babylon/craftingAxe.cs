@@ -35,7 +35,6 @@ public class craftingAxe : MonoBehaviour
                 Destroy(item1);
                 Destroy(item2);
 
-                ChatManager.Instance.AdvanceObjective();
                 Vector3 spawnPosition = spawn_location.transform.position;
                 Quaternion spawnRotation = spawn_location.transform.rotation;
                 spawnPosition.y += 1.0f;
