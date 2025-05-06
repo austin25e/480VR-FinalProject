@@ -1,68 +1,54 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+
 public class EggGoal : MonoBehaviour
 {
-    private int eggCount = 0;
-    public int targetEggs;
+    public EggGoalManager goalManager; 
 
-    public TMButtonScript nextButton;
-
-    private HashSet<GameObject> countedEggs = new HashSet<GameObject>();
-    private bool hasWon = false;
+    private HashSet<GameObject> snappedEggs = new HashSet<GameObject>();
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Egg"))
-        {
-            if (!countedEggs.Contains(other.gameObject))
-            {
-                Debug.Log("Enter!");
-                countedEggs.Add(other.gameObject);
-                eggCount++;
+        if (!other.CompareTag("Egg")) return;
+        if (snappedEggs.Contains(other.gameObject)) return;
 
-                ChatManager.Instance.AdvanceObjective();
-                CheckWin();
-            }
-        }
+        Debug.Log("Egg entered goal!");
+
+        SnapAndLockEgg(other.gameObject);
+        snappedEggs.Add(other.gameObject);
+
+        goalManager?.ReportEggPlaced();
     }
 
-    private void OnTriggerExit(Collider other)
+    private void SnapAndLockEgg(GameObject egg)
     {
-        if (other.CompareTag("Egg"))
-        {
-            if (countedEggs.Contains(other.gameObject))
-            {
-                Debug.Log("Exit!");
-                countedEggs.Remove(other.gameObject);
-                eggCount--;
+        egg.transform.position = transform.position;
+        egg.transform.rotation = Quaternion.Euler(
+            transform.rotation.eulerAngles.x, 
+            transform.rotation.eulerAngles.y,
+            transform.rotation.eulerAngles.z
+        );
 
-                CheckWin();
+        UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grab = egg.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+        if (grab != null)
+        {
+            if (grab.isSelected && grab.interactorsSelecting.Count > 0)
+            {
+                var interactor = grab.interactorsSelecting[0];
+                grab.interactionManager.SelectExit(interactor, grab);
             }
+
+            grab.enabled = false;
         }
-    }
 
-    private void CheckWin()
-    {
-        if (eggCount >= targetEggs)
+        Rigidbody rb = egg.GetComponent<Rigidbody>();
+        if (rb != null)
         {
-            if (!hasWon)
-            {
-                Debug.Log("You won!");
-                hasWon = true;
-                nextButton.UnlockButton(true);
-            }
-        }
-        else
-        {
-            if (hasWon)
-            {
-                Debug.Log("Lost win state due to egg removal.");
-                nextButton.UnlockButton(false);
-                hasWon = false;
-            }
-
-            ChatManager.Instance.NoSpeakAdvanceObjective();
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.isKinematic = true;
+            rb.useGravity = false;
         }
     }
 }
