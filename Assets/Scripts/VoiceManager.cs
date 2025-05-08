@@ -6,6 +6,7 @@ using Meta.WitAi.TTS.Utilities;
 using Meta.WitAi.Requests;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 
 [RequireComponent(typeof(AppVoiceExperience), typeof(TTSSpeaker))]
 public class ChatManager : MonoBehaviour
@@ -39,7 +40,7 @@ public class ChatManager : MonoBehaviour
         // Auto-find references
         if (voiceSDK == null) voiceSDK = FindFirstObjectByType<AppVoiceExperience>();
         if (chatLabel == null) Debug.LogError("Chat label not assigned");
-        if (ttsSpeaker == null) ttsSpeaker = FindFirstObjectByType<TTSSpeaker>();
+        //if (ttsSpeaker == null) ttsSpeaker = FindFirstObjectByType<TTSSpeaker>();
 
         // Locate the TTSSpeaker instance in the scene
         if (ttsSpeaker == null)
@@ -208,12 +209,22 @@ public class ChatManager : MonoBehaviour
         }
 
         string intent = intents[0]["name"].Value.ToLowerInvariant();
-
+        float confidence = float.Parse(intents[0]["confidence"].Value);
         // If user asks for current objective, repeat it
         if (intent == "objective")
         {
             SpeakObjective();
             //return;
+        }
+
+        if (confidence < 0.5f && confidence > 0.0f)
+        {
+            // Low confidence, fallback reply
+            chatLabel.text = "I didn't quite catch that. Could you repeat?";
+            ttsSpeaker.Speak(chatLabel.text);
+            ttsSpeaker.Events.OnPlaybackStart.AddListener((s, c) => voiceSDK.Deactivate());
+            ttsSpeaker.Events.OnPlaybackComplete.AddListener((s, c) => voiceSDK.Activate());
+            ttsSpeaker.Events.OnPlaybackComplete.AddListener((s, c) => chatLabel.text = " ");
         }
 
         // Static intent responses per scene

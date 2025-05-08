@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         if (nailsHammered >= targetNails)
         {
             nailGameDone = true;
-
+            trigger.SetActive(true);
             //if (congratsText != null)
             //    congratsText.gameObject.SetActive(true);
 
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
             if (shipController != null)
                 shipController.enabled = true;
 
-            trigger.SetActive(true);
+            
         }
     }
 }
